@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.hgshkt.androidtask4"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.hgshkt.androidtask4"
-        minSdk = 33
+        minSdk = 34
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
