@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidTask4</string>
+    <string name="requestButtonText">Request</string>
+    <string name="textViewString">Press request button</string>
 </resources>
