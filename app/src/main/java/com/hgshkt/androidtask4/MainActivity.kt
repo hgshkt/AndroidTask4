@@ -1,10 +1,10 @@
 package com.hgshkt.androidtask4
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.hgshkt.androidtask4.api.ApiClient
 import com.hgshkt.androidtask4.api.ApiInterface
 import com.hgshkt.androidtask4.model.DisplayWeather
@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             .subscribe { weather, error ->
                 handleResponse(weather, error)
             }
-            .dispose()
     }
 
     private fun showErrorMessage(error: Throwable) {
