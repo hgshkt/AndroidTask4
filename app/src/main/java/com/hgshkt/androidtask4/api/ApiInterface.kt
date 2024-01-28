@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiInterface {
 
-    @GET("")
+    @GET("/weather/Dnipro")
     fun getWeather(): Single<Weather>
 }
