@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI(weather: DisplayWeather) {
-        textView.text = weather.temperature
+        textView.text ="Temperature: ${weather.temperature}\n" +
+                "Wind: ${weather.wind}\nDescriptioni: ${weather.description}"
     }
 
     private fun init() {
