@@ -25,13 +25,16 @@ class MainActivity : AppCompatActivity() {
         requestButton.setOnClickListener {
             request { weather, error ->
                 updateUI(weather)
-                showErrorMessage(error)
+
+                error?.let {
+                    showErrorMessage(error)
+                }
             }
         }
     }
 
     private fun updateUI(weather: DisplayWeather) {
-        textView.text = weather.temperature.toString()
+        textView.text = weather.temperature
     }
 
     private fun init() {
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         requestButton = findViewById(R.id.requestButton)
     }
 
-    private fun request(handleResponse: (weather: DisplayWeather, error: Throwable) -> Unit) {
+    private fun request(handleResponse: (weather: DisplayWeather, error: Throwable?) -> Unit) {
         val client = ApiClient.client.create(ApiInterface::class.java)
         client.getWeather()
             .subscribeOn(Schedulers.io())
@@ -48,9 +51,10 @@ class MainActivity : AppCompatActivity() {
             .subscribe { weather, error ->
                 handleResponse(weather, error)
             }
+            .dispose()
     }
 
-    private fun showErrorMessage(error: Throwable?) {
-        Toast.makeText(this, error?.message, Toast.LENGTH_SHORT).show()
+    private fun showErrorMessage(error: Throwable) {
+        Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
     }
 }
