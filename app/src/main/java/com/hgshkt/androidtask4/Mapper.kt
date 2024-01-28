@@ -5,6 +5,8 @@ import com.hgshkt.androidtask4.model.DisplayWeather
 
 fun Weather.toDisplay(): DisplayWeather {
     return DisplayWeather(
-        temperature = temperature
+        temperature = temperature,
+        wind = wind,
+        description = description
     )
 }
